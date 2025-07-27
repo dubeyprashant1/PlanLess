@@ -10,7 +10,9 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-require('dotenv').config();
+// require('dotenv').config();
+
+dotenv.config();
 
 const app=express();
 app.use(cors());
