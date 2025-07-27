@@ -1,8 +1,14 @@
-const express=require('express');
-const cors=require('cors');
-const axios=require('axios');
-const { GoogleGenAI } =require('@google/genai');
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+// const express=require('express');
+// const cors=require('cors');
+// const axios=require('axios');
+// const { GoogleGenAI } =require('@google/genai');
+// const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+import express from 'express';
+import cors from 'cors';
+import axios from 'axios';
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 require('dotenv').config();
 
