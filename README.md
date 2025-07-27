@@ -2,7 +2,37 @@
 
 **Planless** is a smart, mood-based activity planning assistant that helps you find the perfect thing to do based on your **mood**, **budget**, and **time**—whether you’re flying solo or planning with friends. It delivers personalized, real-time suggestions that make every moment meaningful.
 
-![Planless Banner](\IndexPage.png)
+![Planless Banner](IndexPage.png)
+
+---
+
+## ❓ Why Planless
+
+### Imagine this:
+
+You're visiting a new city—maybe on vacation, a college trip, a solo getaway, or just tagging along with relatives.  
+You’ve got a few hours free, some money to spend, and the desire to do *something* enjoyable...  
+But here’s the problem:
+
+- You **don’t know the area** well  
+- You’re **unsure what fits your current mood**—maybe you're in the mood to explore, relax, eat, or just vibe somewhere calm  
+- You’re **not sure what fits your budget**  
+- You're either **alone**, with a **friend group**, **family**, or even a **workmate**
+
+That’s where **Planless** steps in.  
+Just tell us how you feel, how much time you’ve got, and your budget range—we’ll do the rest.
+
+---
+
+### 💡 With Planless, you get:
+
+✅ Smart suggestions based on your **mood, time, budget, and location**  
+✅ Experiences tailored for **solo, group, or family settings**  
+✅ Real-time options using **Google Places** and **Gemini AI**  
+✅ An end to decision fatigue—**just pick and go**
+
+No more Googling for hours, no more wasting time deciding.  
+**Planless turns any place into your place**—instantly.
 
 ---
 
