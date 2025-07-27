@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-// import InputForm from "./components/InputForm";
 import InputForm from "./pages/InputForm";
 import FirstPage from "./pages/FirstPage";
 import Navbar from "./components/Navbar";
@@ -29,7 +28,7 @@ const getUserLocation = () => {
 };
 
 const geocodeCityToLatLng = async (city) => {
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`;
+  const url = `${API}/api/geocode?city=${encodeURIComponent(city)}`;
   const res = await fetch(url);
   const data = await res.json();
   
@@ -49,7 +48,6 @@ const FormPage = () => {
   const handleFormSubmit = async (formData) => {
     let res=null;
     try{
-      // const userLocation = await getUserLocation();
       const userLocation=await geocodeCityToLatLng(formData.location);
       const resp1=await fetch(`${API}/api/places`, {
         method:"POST",
@@ -82,8 +80,11 @@ const FormPage = () => {
       console.error("Error submitting form:", error.message); 
     }
     console.log("Form Data:", formData); 
-    navigate("/plan", { state: { plan: res.plan } });
-    // navigate("/plan"); 
+    if (res && res.plan) {
+      navigate("/plan", { state: { plan: res.plan } });
+    } else {
+      alert("Sorry! Couldn't generate a plan. Please try again.");
+    }
   };
 
   return <InputForm onSubmit={handleFormSubmit} />;
