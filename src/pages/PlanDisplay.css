@@ -18,7 +18,6 @@
   letter-spacing: 0.5px;
 }
 
-/* 🔁 Carousel and Image Side-by-Side */
 .carousel-wrapper {
   display: flex;
   justify-content: space-evenly;

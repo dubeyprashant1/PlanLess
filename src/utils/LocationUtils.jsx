@@ -1,4 +1,6 @@
-// src/utils/locationUtils.js
+const API = import.meta.env.VITE_API_URL;
+
+
 export const getCityName = async () => {
   try {
     if ("geolocation" in navigator) {
@@ -9,7 +11,7 @@ export const getCityName = async () => {
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
 
-            const res = await fetch(`http://localhost:5000/api/reverse-geocode?lat=${lat}&lon=${lon}`);
+            const res = await fetch(`${API}/api/reverse-geocode?lat=${lat}&lon=${lon}`);
             const data = await res.json();
 
             const city =
@@ -24,7 +26,7 @@ export const getCityName = async () => {
           async () => {
             console.warn(" Geolocation error:", error.message);
             console.log(" Falling back to IP-based location");
-            const res = await fetch("http://ip-api.com/json");
+            const res = await fetch("https://ip-api.com/json");
             const data = await res.json();
              console.log(" City from IP:", data.city);
             resolve(data.city);

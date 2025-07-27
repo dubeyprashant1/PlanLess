@@ -12,6 +12,7 @@ app.use(express.json());
 
 const port= process.env.PORT || 5000;
 const placeKey = process.env.GOOGLE_PLACES_API_KEY;
+const API = import.meta.env.VITE_API_URL;
 
 app.get('/',(req,res)=>{
     res.send('AI Planner Server is running');
@@ -50,7 +51,7 @@ app.post("/api/places", async (req, res) => {
 
   console.log("Request received:", { lat, lon, mood, radius });
 
-  // Mood-to-place type mapping (Google Places types)
+
   const moodQueryMap = {
   chill: "park",
   foodie: "restaurant",
@@ -58,7 +59,7 @@ app.post("/api/places", async (req, res) => {
   romantic: "cafe",
   adventurous: "amusement_park",
   cultural: "museum",
-  nature: "natural_feature", // fallback, not directly supported
+  nature: "natural_feature", 
   relaxing: "spa",
   party: "night_club",
   historical: "museum",
@@ -107,42 +108,12 @@ app.post("/api/places", async (req, res) => {
 });
 
 
-
-// const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
 const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY );
 console.log("Gemini API Key Loaded:", process.env.GEMINI_API_KEY ? "Yes" : "No");
 
 
 app.post("/api/plan-ai", async (req, res) => {
   const { mood, location, budget, places = [] } = req.body;
-
-//   const prompt = `
-// You are an intelligent day planner AI.
-
-// Location: ${location}
-// Mood: ${mood}
-// Budget: ₹${budget}
-
-// Nearby Places:
-// ${places.map((p, i) => `${i + 1}. ${p.name} (${p.types?.[0] || "general"}), Rating: ${p.rating || "N/A"}`).join("\n")}
-
-
-// Based on the user's mood and budget, choose one place and one movie, and generate a JSON object in the exact format below:
-
-// {
-//   "activity": "string",
-//   "description": "string",
-//   "location": "string",
-//   "budget": number,
-//   "duration": "string",
-//   "rating": number,
-//   "suggestion": "string",
-//   "priority": number
-// }
-
-// Make sure to fill values sensibly. Return only the JSON.
-// `;
 
 const prompt = `
 You are an intelligent day planner AI.
@@ -177,7 +148,6 @@ try {
     const response = await result.response;
     const text = response.text();
 
-    // Attempt to extract a JSON object from Gemini's text
     const jsonMatch = text.match(/\[\s*{[\s\S]*}\s*\]/);
     if (!jsonMatch) throw new Error("No valid JSON response from Gemini");
 
