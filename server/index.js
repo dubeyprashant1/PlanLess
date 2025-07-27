@@ -20,7 +20,7 @@ app.use(express.json());
 
 const port= process.env.PORT || 5000;
 const placeKey = process.env.GOOGLE_PLACES_API_KEY;
-const API = import.meta.env.VITE_API_URL;
+// const API = process.env.VITE_API_URL;
 
 app.get('/',(req,res)=>{
     res.send('AI Planner Server is running');
