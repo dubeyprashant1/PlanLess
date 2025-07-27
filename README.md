@@ -2,7 +2,7 @@
 
 **Planless** is a smart, mood-based activity planning assistant that helps you find the perfect thing to do based on your **mood**, **budget**, and **time**—whether you’re flying solo or planning with friends. It delivers personalized, real-time suggestions that make every moment meaningful.
 
-![Planless Banner](IndexPage.png)
+![Planless Banner](indexPage.png)
 
 ---
 
