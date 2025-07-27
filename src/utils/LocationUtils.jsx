@@ -18,6 +18,7 @@ export const getCityName = async () => {
               data.address?.city ||
               data.address?.town ||
               data.address?.state ||
+              data.address?.county ||
               "";
              console.log(" City from navigator:", city);
 

@@ -43,8 +43,10 @@ app.get("/api/reverse-geocode", async (req, res) => {
         lon,
         format: "json",
       },
-     
-         });
+      headers: {
+          "User-Agent": "ai-planner/1.0 (your-email@example.com)"
+        }
+     });
             res.json(response.data);
         }
     catch (err) {
