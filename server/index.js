@@ -112,6 +112,8 @@ app.post("/api/places", async (req, res) => {
 // const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY );
+console.log("Gemini API Key Loaded:", process.env.GEMINI_API_KEY ? "Yes" : "No");
+
 
 app.post("/api/plan-ai", async (req, res) => {
   const { mood, location, budget, places = [] } = req.body;
