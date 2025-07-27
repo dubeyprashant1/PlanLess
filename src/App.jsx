@@ -28,7 +28,7 @@ const getUserLocation = () => {
 };
 
 const geocodeCityToLatLng = async (city) => {
-  const url = `${API}/api/geocode?city=${encodeURIComponent(city)}`;
+  const url = `${API}/api/reverse-geocode?city=${encodeURIComponent(city)}`;
   const res = await fetch(url);
   const data = await res.json();
   
