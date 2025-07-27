@@ -27,20 +27,34 @@ const getUserLocation = () => {
   });
 };
 
+// const geocodeCityToLatLng = async (city) => {
+//   const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`;
+//   const res = await fetch(url);
+//   const data = await res.json();
+  
+//   if (data.length > 0) {
+//     return {
+//       lat: parseFloat(data[0].lat),
+//       lon: parseFloat(data[0].lon),
+//     };
+//   } else {
+//     throw new Error("City not found");
+//   }
+// };
+
 const geocodeCityToLatLng = async (city) => {
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`;
+  const url = `${API}/api/geocode?city=${encodeURIComponent(city)}`;
   const res = await fetch(url);
   const data = await res.json();
-  
-  if (data.length > 0) {
-    return {
-      lat: parseFloat(data[0].lat),
-      lon: parseFloat(data[0].lon),
-    };
-  } else {
-    throw new Error("City not found");
-  }
+
+  if (data.error) throw new Error("City not found");
+
+  return {
+    lat: data.lat,
+    lon: data.lon,
+  };
 };
+
 
 const FormPage = () => {
   const navigate = useNavigate();
