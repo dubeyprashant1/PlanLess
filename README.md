@@ -31,14 +31,15 @@ Step-1 Clone the Repository
 ```bash
 git clone https://github.com/dubeyprashant1/PlanLess.git
 
+```
 
 Step-2 Install Dependencies
 
 ```bash
-
 cd ai-planner
 npm install
 
+```
 
 Step-3 . Get Your API Keys
 1. 🔑 Google Places API
@@ -55,14 +56,14 @@ Step-4 Set Up Environment Variables
 Create .env file in the ai-planner/server directory and add:
 
 ```bash 
-
 GOOGLE_PLACES_API_KEY=your_google_places_api_key
 GEMINI_API_KEY=your_gemini_api_key
+
+```
 
 step-5 Start Development servers
 
 ```bash
-
 #(In current terminal  --  Frontend)
 npm run dev 
 
@@ -71,4 +72,4 @@ cd ai-planner/server
 node index.js
 
 #click on the link on 1st terminal(Frontend Server)
-
+```
